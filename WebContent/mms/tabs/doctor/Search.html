@@ -1,0 +1,75 @@
+<!-- 医生编号查询 -->
+<div  style="margin: 2% 0px 0px 30%">
+    <div class="easyui-panel" title="医生编号查询"
+        data-options="iconCls:'icon-user'"
+        style="max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <input id="dotId" class="easyui-textbox"
+            labelPosition="top" data-options="prompt:'请输入医生编号...'"
+            style="width:100%;height:35px">
+        </div>
+        <div>
+            <a href="javascript:SDMIdclick()" class="easyui-linkbutton" iconCls="icon-ok" style="width:100%">编号查询</a>
+        </div>
+    </div>
+</div>
+<!-- 查询结束 -->
+
+<!-- 隐藏页面 -->
+<!-- 隐藏对话框 -->
+<div class="easyui-dialog" title="医生信息" closed="true" id="Doctordialog"
+data-options="iconCls:'icon-user',modal:true,draggable:false"
+style="width:700px;height:500px;">
+    <div style="margin-left: 5px;margin-bottom: 25px;margin-top:5px;">
+        <div style="margin-bottom: 30px">
+            编号:<input id="doto"
+            class="easyui-textbox"
+            style="width: 200px;height:40px"
+            data-options="disabled:true"></input>
+            &nbsp;
+            姓名:<input id="dotname"
+            class="easyui-textbox"
+            style="width: 200px;height:40px"
+            data-options="disabled:true"></input>
+            &nbsp;
+            性别:<input id="dotsex"
+            class="easyui-textbox"
+            style="width: 170px;height:40px"
+            data-options="disabled:true"></input>
+            &nbsp;
+            电话:<input id="dotphone"
+            class="easyui-textbox"
+            style="width: 200px;height:40px"
+            data-options="disabled:true"></input>
+            &nbsp;
+            职称:<input id="dotpro"
+            class="easyui-textbox"
+            style="width: 200px;height:40px"
+            data-options="disabled:true"></input>
+            &nbsp;
+        </div>
+    </div>
+</div>
+<!-- 测试完成 -->
+<script type="text/javascript">
+    function SDMIdclick() {
+
+    $.post("../Doctor/queryDoctorByDoto", {
+       doto: $('#dotId').textbox('getValue')
+    }, function(data) {
+        if (data == ''){
+            $.messager.alert('警告', '编号无效');
+            return ;
+        }
+        $('#Doctordialog').dialog('open');
+        $("#doto").textbox('setValue', data.doto);
+        $("#dotname").textbox('setValue', data.dotname);
+        $("#dotsex").textbox('setValue', data.dotsex);
+        $("#dotphone").textbox('setValue', data.dotphone);
+        $("#dotpro").textbox('setValue', data.dotpro);
+
+    });
+}
+
+</script>
+

@@ -1,0 +1,32 @@
+<!-- /* 浏览药品信息*/ -->
+     <table class="easyui-datagrid" 
+         data-options="striped:true,
+         pagination:true,
+         
+         
+         url:'../Medicine/GetMessage',pageSize:5,
+         pageList:[5,10,15]"
+         style="width: 80%">
+      <thead>
+          <tr>
+            
+
+            
+            <th data-options="field:'mno'" width=12%>
+            编号</th>
+              <th data-options="field:'mname'" width=18%>
+              名称</th>
+              <th data-options="field:'mmode'" width=8%>
+              服用方法</th>
+              <th data-options="field:'mefficacy',formatter:showText" width=62%>
+              功效</th>
+              
+
+          </tr>
+      </thead>
+  </table>
+<script>
+function showText(value,row,index){
+		return '<div style="width=100px;word-break:break-all; word-wrap:break-word;white-space:pre-wrap;">'+value+'</div>';
+}
+</script>
