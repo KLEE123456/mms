@@ -35,7 +35,6 @@ public class ClientService {
 			if (queryClientBycno(client.getCno()) != null) {
 				return "客户编号已经存在，请重新输入编号";
 			}
-			System.out.println(client);
 			clientMapper.saveClient(client);
 			return "保存成功";
 			

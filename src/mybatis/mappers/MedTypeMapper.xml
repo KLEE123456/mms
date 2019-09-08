@@ -7,4 +7,7 @@
     <select id="queryMedicineTypeByMno" resultType="medtype" parameterType="string">
           select  * from  mdtype where  mdo=#{mdo}
     </select>
+    <insert id="saveMedType" parameterType="medtype">
+            insert into mdtype values (default ,#{mdo} ,#{mdname} );
+    </insert>
 </mapper>

@@ -1,0 +1,53 @@
+<!-- 录入药品类别信息EMTM -->
+
+<div style="margin:10px 0px 0px 50px">
+    <div  style="width:1600px;height:600px">
+      <form id="EMTMform" method="post" >
+        <div style="margin-left: 5px;margin-bottom: 25px;margin-top:5px;">
+            <div style="margin-bottom: 30px">
+              编号:<input  name="mdo" id="mdo"
+              class="easyui-textbox"
+              style="width: 200px;height:40px"
+              data-options="prompt:'长度小于10'"></input>
+              &nbsp;&nbsp;
+              类别名称:<input  name="mdname"  id="mdname"
+              class="easyui-textbox"
+              style="width: 200px;height:40px"
+              data-options="prompt:'长度小于20'"></input>
+              &nbsp;&nbsp;
+            </div>
+            </div>
+        </form>
+        <a  href="javascript:EMDMclickEntry()"
+            class="easyui-linkbutton"
+            style="width: 150px;height: 40px;
+                margin-left: 35%"
+            data-options="iconCls:'icon-pill_add'"><h1>录入</h1>
+        </a>
+  </div>
+</div>
+<!-- 测试完成 -->
+<script type="text/javascript">
+  function EMDMclickEntry() {
+
+  
+    if($("#mdo").val().length>10||$("#mdo").val().length==0) {
+        $.messager.alert('提示', '编号不能长度大于10且不为空'); 
+        return ;
+    }
+    if($("#mdname").val().length>20||$("#mdname").val().length==0) {
+      $.messager.alert('提示', '类别不能长度大于20且不为空');
+      return ;
+    }
+
+              $('#EMTMform').form({
+                url:'../MedType/saveMedType',
+                onSubmit: function(){
+                },    
+                success:function(data){
+                    $.messager.alert('提示', data); 
+                }    
+            });
+            $('#EMTMform').submit();
+}
+</script>

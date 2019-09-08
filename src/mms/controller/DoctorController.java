@@ -13,11 +13,23 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
-    @RequestMapping(value = "queryDoctorByDoto")
+    /**
+     * 医生信息查询
+     * @param doto
+     * @return
+     */
+    @RequestMapping(value = "queryDoctorByDoto",produces = "text/html;charset=UTF-8")
     @ResponseBody
     public Doctor queryDoctorByDoto(String doto){
         Doctor doctor=doctorService.queryDoctorByDoto(doto);
         return doctor;
+    }
+
+    //医生添加
+    @RequestMapping(value = "saveDoctor",produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String saveDoctor(Doctor doctor){
+        return doctorService.savaDoctor(doctor);
     }
 
 }

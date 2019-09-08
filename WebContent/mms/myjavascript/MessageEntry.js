@@ -47,12 +47,12 @@ function EAMclick(){
 function EMMclick(){
         if(access.indexOf("信息录入功能") < 0 ){
             $.messager.alert('警告','该用户没有此功能');
-            event.stopPropagation();    
+            event.stopPropagation();
          }
     	if(!$('#output').tabs('exists','录入药品信息')) {
-				     $('#output').tabs('add',{ 
-				     	// id:'ECM',   
-					    title:'录入药品信息',    
+				     $('#output').tabs('add',{
+				     	// id:'ECM',
+					    title:'录入药品信息',
 					      // fit:true,
 					    href:'./tabs/medicine/Entry.html',
 					    closable:true
@@ -65,4 +65,6 @@ function EMMclick(){
  }
 
 // 录入药品信息end
+
+
 // 信息录入end

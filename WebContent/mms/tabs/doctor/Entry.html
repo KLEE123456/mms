@@ -1,0 +1,77 @@
+<!-- 录入医生信息EDM -->
+
+<div style="margin:10px 0px 0px 50px">
+    <div  style="width:1600px;height:600px">
+      <form id="EDMform" method="post" >
+        <div style="margin-left: 5px;margin-bottom: 25px;margin-top:5px;">
+            <div style="margin-bottom: 30px">
+              编号:<input  name="doto" id="doto"
+              class="easyui-textbox"
+              style="width: 200px;height:40px"
+              data-options="prompt:'长度小于10'"></input>
+              &nbsp;&nbsp;
+              姓名:<input  name="dotname"  id="dotname"
+              class="easyui-textbox"
+              style="width: 200px;height:40px"
+              data-options="prompt:'长度小于8'"></input>
+              &nbsp;&nbsp;
+              性别:<select  class="easyui-combobox" name="dotsex"
+              data-options="panelHeight:'auto'" 
+              style="width: 200px;height:40px">   
+                <option value="男">男</option>   
+                <option value="女">女</option> 
+              </select>  
+            </div>
+              &nbsp;&nbsp;
+              电话:<input  name="dotphone" id="dotphone"
+              class="easyui-textbox" 
+              style="width: 200px;height:40px"
+              data-options="prompt:'长度小于20'"></input>
+              &nbsp;&nbsp;
+              职称:<input  name="dotpro" id="dotpro"
+               class="easyui-textbox"
+               style="width: 200px;height:40px"
+               data-options="prompt:'长度小于20'">
+            </div>
+        </form>
+        <a  href="javascript:EDMclickEntry()"
+            class="easyui-linkbutton"
+            style="width: 150px;height: 40px;
+                margin-left: 35%"
+            data-options="iconCls:'icon-user_add'"><h1>录入</h1>
+        </a>
+  </div>
+</div>
+<!-- 测试完成 -->
+<script type="text/javascript">
+  function EDMclickEntry() {
+
+  
+    if($("#doto").val().length>10||$("#doto").val().length==0) {
+        $.messager.alert('提示', '编号不能长度大于10且不为空'); 
+        return ;
+    }
+    if($("#dotname").val().length>8) {
+        $.messager.alert('提示', '姓名不能长度大于8'); 
+        return ;
+    }
+    if($("#dotphone").val().length>20) {
+        $.messager.alert('提示', '电话不能长度大于20'); 
+        return ;
+    }
+      if($("#dotpro").val().length>20) {
+          $.messager.alert('提示', '职称不能长度大于20');
+          return ;
+      }
+
+              $('#EDMform').form({
+                url:'../Doctor/saveDoctor',
+                onSubmit: function(){
+                },    
+                success:function(data){
+                    $.messager.alert('提示', data); 
+                }    
+            });
+            $('#EDMform').submit();
+}
+</script>

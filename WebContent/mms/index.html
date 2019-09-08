@@ -15,7 +15,9 @@
 <script type="text/javascript" src="./js/common.js"></script>
 <script language="javascript" src="./js/jquery.jqprint-0.3.js"></script>
     <script type="text/javascript"
-    src="tabs/medtype/js/MedType.js"></script>
+    src="tabs/medtype/js/MedTypeQuery.js"></script>
+    <script type="text/javascript"
+            src="tabs/medtype/js/MedTypeEntry.js"></script>
     <script type="text/javascript"
             src="tabs/medicine/js/Medicine.js"></script>
     <script type="text/javascript"
@@ -23,9 +25,10 @@
     <script type="text/javascript"
             src="tabs/agency/js/Agency.js"></script>
     <script type="text/javascript"
-            src="tabs/doctor/js/Doctor.js"></script>
+            src="tabs/doctor/js/DoctorEntry.js"></script>
     <script type="text/javascript"
-    src="./myjavascript/MessageEntry.js"></script>
+            src="tabs/doctor/js/DoctorQuery.js"></script>
+    <script type="text/javascript" src="./myjavascript/MessageEntry.js"></script>
     <script type="text/javascript"
     src="./myjavascript/MessageDelete.js"></script>
     <script type="text/javascript" 
@@ -52,9 +55,9 @@
     
     data-options="region:'north',split:true,border:false,
         height:'10%',disabled:true">
-       
-   
-<div style="margin-left: 80%; margin-top: 2%; font-size: 18px">
+
+
+        <div style="margin-left: 80%; margin-top: 2%; font-size: 18px">
     用户名:<span id="loginName" ></span>
     <span style="font-size: 15px">
     <a href="javascript:logOff()">注销</a>|
@@ -80,7 +83,10 @@
             <div title="信息录入" id="EC" data-options="iconCls:'icon-01'">
                <a  href="javascript:ECMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_add'" style="width: 100%">录入顾客信息</a>  
                 <a  href="javascript:EAMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-group_add'" style="width: 100%">录入经办人信息</a>  
-                <a href="javascript:EMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_add'" style="width: 100%">录入药品信息</a>  
+                <a href="javascript:EMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_add'" style="width: 100%">录入药品信息</a>
+                <a href="javascript:EDMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_add'" style="width: 100%">录入医生信息</a>
+                <a href="javascript:EMTMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_add'" style="width: 100%">录入药品类别信息</a>
+
             </div> 
 <!-- 信息删除-DCM-DAM-DMM+MessageDelete  -->
             <div title="信息删除" id="DC" data-options="iconCls:'icon-delete'">
@@ -119,13 +125,11 @@
         </div>  
     </div>
 <!-- 输出体    -->
-    <div id="output" class="easyui-tabs" 
+    <div  class="easyui-tabs" id="output"
     data-options="tools:'#tt1',region:'center',fit:true,height:'86%',
-    border:true,"
-     style="background:#eee"> 
-     
-     </div>   
-</div> 
+    border:true," style="background-image: url(/mms/images/bg.jpg);background-size: cover">
+     </div>
+</div>
 
 
 <!-- 隐藏页面 -->

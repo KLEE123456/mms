@@ -7,4 +7,7 @@
     <select id="queryDoctorByDoto" resultType="doctor" parameterType="string">
         select * from doctor where  doto=#{doto}
     </select>
+    <insert id="savaDoctor" parameterType="doctor">
+        insert into doctor  values (default ,#{doto} ,#{dotname} ,#{dotsex} ,#{dotphone} ,#{dotpro}  );
+    </insert>
 </mapper>

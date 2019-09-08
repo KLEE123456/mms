@@ -19,4 +19,10 @@ public class MedTypeController {
         MedType medType1=medTypeService.queryMedicineTypeByMno(mdo);
         return medType1;
     }
+
+    @RequestMapping(value = "saveMedType",produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String  saveMedType(MedType medType){
+        return medTypeService.saveMedType(medType);
+    }
 }

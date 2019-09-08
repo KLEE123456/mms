@@ -5,4 +5,5 @@ import mms.pojo.MedType;
 
 public interface MedTypeMapper {
     MedType queryMedicineTypeByMno(String mdo);
+    int saveMedType(MedType medType);
 }
