@@ -1,0 +1,22 @@
+<!-- /* 浏览药品类别信息*/ -->
+<table class="easyui-datagrid"
+       data-options="striped:true,
+         pagination:true,
+
+
+         url:'../MedType/GetMessage',pageSize:5,
+         pageList:[5,10,15]"
+       style="width: 80%">
+    <thead>
+    <tr>
+
+
+
+        <th data-options="field:'mdo'"  width=12% >
+            编号</th>
+        <th data-options="field:'mdname'" width=10%>
+            类别名称</th>
+
+    </tr>
+    </thead>
+</table>

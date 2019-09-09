@@ -17,15 +17,24 @@
                     style="width: 200px;height:40px">   
                       <option value="内服">内服</option>   
                       <option value="外用">外用</option> 
-                    </select>  
-                
+                    </select>
+
                 </div>
+
                 <div style="margin-bottom: 30px">
                     名称:<input  name="mname" id="emmname" 
                     multiline="true"
                     class="easyui-textbox" 
-                    style="width: 500px;height:150px"
+                    style="width: 200px;height:50px"
                     data-options="" ></input>
+
+                </div>
+                <div style="margin-bottom: 30px">
+                    药品类别:<input  name="mdtypeid" id="mdtypeid"
+                                 class="easyui-combobox"
+                                 style="width: 200px;height:40px"
+                                 data-options="url:'../MedType/findAllMedType',prompt:'必填',
+              valueField:'mdtypeid',textField:'mdname',panelHeight:'300px'"></input>
                 </div>
                 <div style="margin-bottom: 30px;">
                     功效:<input  name="mefficacy" id="emmefficacy" 
@@ -34,6 +43,7 @@
                     style="width: 500px;height:150px"
                     data-options="" ></input>
                 </div>
+
             </form>
         <a  href="javascript:EMMclickEntry()"
             class="easyui-linkbutton"
@@ -51,6 +61,10 @@
         $.messager.alert('提示', '编号不能长度大于12且不为空'); 
         return ;
     }
+     if($("#mdtypeid").combobox("getText").length==0) {
+         $.messager.alert('提示', '药品类别不能为空');
+         return ;
+     }
     if($("#emmname").val().length>50) {
         $.messager.alert('提示', '名称不能长度大于50'); 
         return ;

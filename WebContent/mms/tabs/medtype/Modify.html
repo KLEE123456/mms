@@ -1,0 +1,90 @@
+<!-- 药品类别信息修改MCM-->
+<div  style="margin: 2% 0px 0px 30%">
+    <div class="easyui-panel" title="药品类别编号查询"
+         data-options="iconCls:'icon-pill'"
+         style="max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <input id="mdos" class="easyui-textbox"
+                   labelPosition="top"
+                   data-options="prompt:'请输入药品类别编号...'"
+                   style="width:100%;height:32px">
+        </div>
+        <div>
+            <a href="javascript:MTMIdclick()" class="easyui-linkbutton" iconCls="icon-ok"
+               style="width:100%">查询
+            </a>
+        </div>
+    </div>
+</div>
+<!-- 查询结束 -->
+
+<!-- 隐藏页面 -->
+<!-- 隐藏对话框 -->
+<div class="easyui-dialog" title="药品类别信息" closed="true" id="MTMdialog"
+     data-options="iconCls:'icon-user',modal:true,draggable:false"
+     style="width:760px;height:560px">
+    <div style="margin-left: 5px;margin-bottom: 25px;margin-top:5px;">
+        <form id="MTMform" method="post">
+            <input type="hidden" name="mdtypeid" id="mdtypeid">
+            <div style="margin-bottom: 30px">
+                编号:<input  name="mdo" id="mdo"
+                           class="easyui-textbox"
+                           style="width: 200px;height:40px"
+                           data-options="prompt:'长度小于10'"></input>
+                &nbsp;&nbsp;
+                类别名称:<input  name="mdname"  id="mdname"
+                           class="easyui-textbox"
+                           style="width: 200px;height:40px"
+                           data-options="prompt:'长度小于20'"></input>
+                &nbsp;&nbsp;
+            </select>
+            </div>
+        </form>
+        <a  href="javascript:MTMclickModify()"
+            class="easyui-linkbutton"
+            data-options="text:'asd',iconCls:'icon-pill' "
+            style="width: 150px;height: 40px;
+            margin-left: 35%" ><h1>修改</h1></a>
+    </div>
+</div>
+<script type="text/javascript">
+    function MTMIdclick() {
+        $.post("../MedType/queryMedicineTypeByMno", {
+            mdo: $('#mdos').textbox('getValue')
+        }, function(data) {
+            if (data == ''){
+                $.messager.alert('警告', '药品类别编号无效');
+                return ;
+            }
+            $('#MTMdialog').dialog('open');
+            $("#mdtypeid").val(data.mdtypeid);
+            $("#mdo").textbox('setValue', data.mdo);
+            $("#mdname").textbox('setValue', data.mdname);
+        });
+    }
+    function MTMclickModify(){
+        if($("#mdo").val().length>10||$("#mdo").val().length==0) {
+            $.messager.alert('提示', '编号不能长度大于10且不为空');
+            return ;
+        }
+        if($("#mdname").val().length>8) {
+            $.messager.alert('提示', '药品类别名称不能长度大于20');
+            return ;
+        }
+        $('#MTMform').form({
+            url:'../MedType/modifyMedType',
+            onSubmit: function(){
+                // do some check
+                // return false to prevent submit;
+            },
+            success:function(data){
+                $.messager.alert('提示', data);
+                $('#MTMdialog').dialog('close');
+            }
+        });
+// submit the form
+        $('#MTMform').submit();
+
+
+    }
+</script>

@@ -1,0 +1,29 @@
+<!-- /* 报表药品类别信息*/ -->
+<div id="RDMPrint" >
+    <table class="easyui-datagrid" toolbar="#medTypePrint"
+           title="药品类别信息报表"
+           data-options="
+         pagination:true,
+         url:'../MedType/GetMessage',pageSize:5,
+         pageList:[5,10,15]"
+           style="width:80%">
+        <thead>
+        <tr>
+            <th data-options="field:'mdo'"  width=10% >
+                编号</th>
+            <th data-options="field:'mdname'" width=10%>
+                类别名称</th>
+
+        </tr>
+        </thead>
+    </table>
+</div>
+<div id="medTypePrint">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-printer" plain="true"
+       onclick="RMTMPrint()">打印</a>
+</div>
+<script type="text/javascript">
+    function RMTMPrint(){
+        $('#RDMPrint').jqprint();
+    }
+</script>

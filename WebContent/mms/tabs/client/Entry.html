@@ -38,6 +38,12 @@
               style="width: 200px;height:40px"
               data-options="url:'../Agency/GetAllAgency',prompt:'必填',
               valueField:'ano',textField:'aname',panelHeight:'300px'"></input>
+                &nbsp;&nbsp;
+                主治医师:<input  name="dotid" id="doto"
+                            class="easyui-combobox"
+                            style="width: 200px;height:40px"
+                            data-options="url:'../Doctor/findAllDoctor',prompt:'必填',
+              valueField:'dotid',textField:'dotname',panelHeight:'300px'"></input>
             </div>
             <div style="margin-bottom: 20px">
                 日期:<input  name="cdate" id="eccdate" 
@@ -114,6 +120,10 @@
         $.messager.alert('提示', '经办人不能为空'); 
         return ;
     }
+      if($("#doto").combobox("getText").length==0) {
+          $.messager.alert('提示', '主治医师不能为空');
+          return ;
+      }
     if($("#ecmno").combobox("getText").length==0) {
     	// alert($("#eccdate").combo("getText"));
         $.messager.alert('提示', '已购药品不能为空'); 

@@ -1,0 +1,63 @@
+<!-- /* 删除医生信息*/ -->
+
+<table id="DDMDatagrid" class="easyui-datagrid" toolbar="#doctorDelete"
+title="医生信息报表"
+data-options="striped:true,
+height:'auto',  
+singleSelect: false,
+selectOnCheck: true,//true勾选会选择行，false勾选不选择行, 1.3以后有此选项。重点在这里  
+checkOnSelect: true, //true选择行勾选，false选择行不勾选, 1.3以后有此选项 
+rownumbers:true,
+remoteSort: false,
+pagination:true,fitColumns:true,
+url:'../Doctor/GetMessage',pageSize:5,
+pageList:[5,10,15]"
+style="width: 80%">
+
+<thead>
+  <tr>
+    <th data-options="field:'GenreId',checkbox: true" width=2%>
+    </th>
+    <th data-options="field:'doto'" width=12%>
+    编号</th>
+    <th data-options="field:'dotname'" width=18%>
+    姓名</th>
+    <th data-options="field:'dotsex'" swidth=5%>
+    性别</th>
+    <th data-options="field:'dotphone'" swidth=12%>
+    电话号码</th>
+    <th data-options="field:'dotpro'" swidth=18%>
+    职称</th>
+</tr>
+</thead>
+</table>
+</div>
+<div id="doctorDelete">
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+    iconCls="icon-user_delete" plain="true"
+    onclick="DDMDelte()">删除医生</a>
+</div>
+    <script type="text/javascript">
+      function DDMDelte(){
+        var deleteRow = $('#DDMDatagrid').datagrid('getSelections');
+        if (deleteRow.length==0) {
+            $.messager.alert("提示", "请选择要删除的行！");
+            return;
+        }else{
+            var ids=[];
+            for (var i = 0; i < deleteRow.length; i++) {
+             ids.push(deleteRow[i].doto);
+         }
+         $.post('../Doctor/DeleteRows', {"array[]":ids
+     }, function(data) {
+      /*optional stuff to do after success */
+      $.messager.alert("提示", data);
+      $('#DDMDatagrid').datagrid('reload');
+  });
+     }
+ }
+      function showText(value,row,index){
+  		return '<div style="width=100px;word-break:break-all; word-wrap:break-word;white-space:pre-wrap;">'+value+'</div>';
+  }
+</script>
+

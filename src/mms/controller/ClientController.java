@@ -49,6 +49,7 @@ public class ClientController {
 	@RequestMapping(value = "SaveClient", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String saveClient(Client client) {
+		System.out.println(client);
 		return clientService.saveClient(client);
 	}
 

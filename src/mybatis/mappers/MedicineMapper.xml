@@ -31,8 +31,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM medicine
 	</select>
 	<insert id="saveMedicine" parameterType="Medicine">
-		insert into medicine(mno,mname,mmode,mefficacy) VALUES 
-		(#{mno},#{mname},#{mmode},#{mefficacy})
+		insert into medicine(mno,mname,mmode,mefficacy,mdtypeid) VALUES
+		(#{mno},#{mname},#{mmode},#{mefficacy},#{mdtypeid} )
 	</insert>
 	
 </mapper>

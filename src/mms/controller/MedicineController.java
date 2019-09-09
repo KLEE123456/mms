@@ -77,6 +77,7 @@ public class MedicineController {
 	@RequestMapping(value = "SaveMedicine", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String saveMedicine(Medicine medicine) {
+		System.out.println(medicine);
 		return medicineService.saveMedicine(medicine);
 	}
 

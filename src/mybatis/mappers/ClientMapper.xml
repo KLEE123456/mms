@@ -28,11 +28,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="saveClient" parameterType="Client" >
 		INSERT INTO client (
 		cno,cname,csex,cage,caddress,cphone,csymptom,
-		mno,ano,cdate,cremark)
+		mno,ano,cdate,cremark,dotid)
 		VALUES(
 		#{cno},#{cname},#{csex},#{cage},#{caddress},
 		#{cphone},#{csymptom},#{mno},#{ano},#{cdate},
-		#{cremark})
+		#{cremark},#{dotid} )
 	</select>
 	
 	

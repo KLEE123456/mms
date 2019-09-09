@@ -10,6 +10,15 @@ public class Medicine {
 	private String mname;
 	private String mmode;
 	private String mefficacy;
+	private int mdtypeid;
+
+	public int getMdtypeid() {
+		return mdtypeid;
+	}
+
+	public void setMdtypeid(int mdtypeid) {
+		this.mdtypeid = mdtypeid;
+	}
 
 	public int getMid() {
 		return mid;

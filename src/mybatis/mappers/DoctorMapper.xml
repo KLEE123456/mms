@@ -10,4 +10,18 @@
     <insert id="savaDoctor" parameterType="doctor">
         insert into doctor  values (default ,#{doto} ,#{dotname} ,#{dotsex} ,#{dotphone} ,#{dotpro}  );
     </insert>
+    <select id="queryAllDoctor" resultType="doctor">
+        select * from  doctor
+    </select>
+    <delete id="deleteDoctorByDoto" parameterType="string">
+        delete from  doctor where doto=#{doto}
+    </delete>
+    <update id="modifyDoctor" parameterType="doctor">
+        update doctor set
+        doto=#{doto} ,
+        dotname=#{dotname} ,
+        dotsex=#{dotsex} ,
+        dotpro=#{dotpro}
+        where dotid=#{dotid}
+    </update>
 </mapper>

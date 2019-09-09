@@ -1095,190 +1095,212 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="278" parent="250" name="cno_UNIQUE">
+    <column id="278" parent="250" name="dotid">
+      <Position>13</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="279" parent="250" name="cno_UNIQUE">
       <ColNames>cno</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="279" parent="250" name="cid_UNIQUE">
+    <index id="280" parent="250" name="cid_UNIQUE">
       <ColNames>cid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="280" parent="250" name="mno">
+    <index id="281" parent="250" name="mno">
       <ColNames>mno</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="281" parent="250" name="ano">
+    <index id="282" parent="250" name="ano">
       <ColNames>ano</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="282" parent="250" name="PRIMARY">
+    <index id="283" parent="250" name="client_ibfk_3">
+      <ColNames>dotid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="284" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cno</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="283" parent="250" name="cno_UNIQUE">
+    <key id="285" parent="250" name="cno_UNIQUE">
       <ColNames>cno</ColNames>
       <UnderlyingIndexName>cno_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="284" parent="250" name="cid_UNIQUE">
+    <key id="286" parent="250" name="cid_UNIQUE">
       <ColNames>cid</ColNames>
       <UnderlyingIndexName>cid_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="285" parent="250" name="client_ibfk_1">
+    <foreign-key id="287" parent="250" name="client_ibfk_1">
       <ColNames>mno</ColNames>
       <RefSchemaName>db_mms</RefSchemaName>
       <RefTableName>medicine</RefTableName>
       <RefColNames>mno</RefColNames>
     </foreign-key>
-    <foreign-key id="286" parent="250" name="client_ibfk_2">
+    <foreign-key id="288" parent="250" name="client_ibfk_2">
       <ColNames>ano</ColNames>
       <RefSchemaName>db_mms</RefSchemaName>
       <RefTableName>agency</RefTableName>
       <RefColNames>ano</RefColNames>
     </foreign-key>
-    <column id="287" parent="251" name="dotid">
+    <foreign-key id="289" parent="250" name="client_ibfk_3">
+      <ColNames>dotid</ColNames>
+      <RefSchemaName>db_mms</RefSchemaName>
+      <RefTableName>doctor</RefTableName>
+      <RefColNames>dotid</RefColNames>
+    </foreign-key>
+    <column id="290" parent="251" name="dotid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="251" name="doto">
+    <column id="291" parent="251" name="doto">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="251" name="dotname">
+    <column id="292" parent="251" name="dotname">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="251" name="dotsex">
+    <column id="293" parent="251" name="dotsex">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="251" name="dotphone">
+    <column id="294" parent="251" name="dotphone">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="251" name="dotpro">
+    <column id="295" parent="251" name="dotpro">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="293" parent="251" name="PRIMARY">
+    <key id="296" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dotid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="294" parent="252" name="mdtypeid">
+    <column id="297" parent="252" name="mdtypeid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="252" name="mdo">
+    <column id="298" parent="252" name="mdo">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="252" name="mdname">
+    <column id="299" parent="252" name="mdname">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="297" parent="252" name="PRIMARY">
+    <key id="300" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>mdtypeid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="298" parent="253" name="mno">
+    <column id="301" parent="253" name="mno">
       <Position>1</Position>
       <DataType>char(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="253" name="mname">
+    <column id="302" parent="253" name="mname">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="253" name="mmode">
+    <column id="303" parent="253" name="mmode">
       <Position>3</Position>
       <DataType>char(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="253" name="mefficacy">
+    <column id="304" parent="253" name="mefficacy">
       <Position>4</Position>
       <DataType>varchar(1000)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="253" name="mid">
+    <column id="305" parent="253" name="mid">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="303" parent="253" name="mno_UNIQUE">
+    <column id="306" parent="253" name="mdtypeid">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="307" parent="253" name="mno_UNIQUE">
       <ColNames>mno</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="304" parent="253" name="mid_UNIQUE">
+    <index id="308" parent="253" name="mid_UNIQUE">
       <ColNames>mid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="305" parent="253" name="PRIMARY">
+    <key id="309" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>mno</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="306" parent="253" name="mno_UNIQUE">
+    <key id="310" parent="253" name="mno_UNIQUE">
       <ColNames>mno</ColNames>
       <UnderlyingIndexName>mno_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="307" parent="253" name="mid_UNIQUE">
+    <key id="311" parent="253" name="mid_UNIQUE">
       <ColNames>mid</ColNames>
       <UnderlyingIndexName>mid_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="308" parent="254" name="uUsername">
+    <column id="312" parent="254" name="uUsername">
       <Position>1</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="254" name="uPassword">
+    <column id="313" parent="254" name="uPassword">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="254" name="uAccess">
+    <column id="314" parent="254" name="uAccess">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="311" parent="254" name="uUsername_UNIQUE">
+    <index id="315" parent="254" name="uUsername_UNIQUE">
       <ColNames>uUsername</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="312" parent="254" name="PRIMARY">
+    <key id="316" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uUsername</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="313" parent="254" name="uUsername_UNIQUE">
+    <key id="317" parent="254" name="uUsername_UNIQUE">
       <ColNames>uUsername</ColNames>
       <UnderlyingIndexName>uUsername_UNIQUE</UnderlyingIndexName>
     </key>

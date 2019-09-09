@@ -14,6 +14,9 @@
 <script type="text/javascript" src="./js/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
 <script language="javascript" src="./js/jquery.jqprint-0.3.js"></script>
+    <script type="text/javascript" src="./myjavascript/MessageSearch.js">
+
+    </script>
     <script type="text/javascript"
     src="tabs/medtype/js/MedTypeQuery.js"></script>
     <script type="text/javascript"
@@ -28,6 +31,22 @@
             src="tabs/doctor/js/DoctorEntry.js"></script>
     <script type="text/javascript"
             src="tabs/doctor/js/DoctorQuery.js"></script>
+    <script type="text/javascript"
+            src="tabs/doctor/js/DoctorDelete.js"></script>
+    <script type="text/javascript"
+            src="tabs/doctor/js/DoctorModify.js"></script>
+    <script type="text/javascript"
+            src="tabs/medtype/js/MedTypeModify.js"></script>
+    <script type="text/javascript"
+            src="tabs/medtype/js/MedTypeDelete.js"></script>
+    <script type="text/javascript"
+            src="tabs/medtype/js/MedTypeBrowse.js"></script>
+    <script type="text/javascript"
+            src="tabs/medtype/js/MedTypeReport.js"></script>
+    <script type="text/javascript"
+            src="tabs/doctor/js/DoctorBrowse.js"></script>
+    <script type="text/javascript"
+            src="tabs/doctor/js/DoctorReport.js"></script>
     <script type="text/javascript" src="./myjavascript/MessageEntry.js"></script>
     <script type="text/javascript"
     src="./myjavascript/MessageDelete.js"></script>
@@ -92,19 +111,25 @@
             <div title="信息删除" id="DC" data-options="iconCls:'icon-delete'">
                 <a  href="javascript:DCMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_delete'" style="width: 100%">删除顾客信息</a>  
                 <a  href="javascript:DAMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-group_delete'" style="width: 100%">删除经办人信息</a>  
-                <a href="javascript:DMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_delete'" style="width: 100%">删除药品信息</a> 
-            </div>  
+                <a href="javascript:DMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_delete'" style="width: 100%">删除药品信息</a>
+                <a href="javascript:DDMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_delete'" style="width: 100%">删除医生信息</a>
+                <a href="javascript:DMTMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_delete'" style="width: 100%">删除药品类别信息</a>
+            </div>
 <!-- 信息修改-MCM-MAM-MMM+MessageModify  -->
             <div title="信息修改" id="MC" data-options="iconCls:'icon-edit'">
                  <a  href="javascript:MCMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_edit'" style="width: 100%">修改顾客信息</a>  
                 <a  href="javascript:MAMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-group_edit'" style="width: 100%">修改经办人信息</a>  
                 <a  href="javascript:MMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill'" style="width: 100%">修改药品信息</a>
+                <a  href="javascript:MDTclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user'" style="width: 100%">修改医生信息</a>
+                <a  href="javascript:MMTMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill'" style="width: 100%">修改药品类别信息</a>
             </div>
 <!-- 信息浏览-BCM-BAM-BMM+MessageBrowse  -->
             <div title="信息浏览" id="BC" data-options="iconCls:'icon-search'">
                 <a  href="javascript:BCMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_alert'" style="width: 100%">浏览顾客信息</a>  
                 <a  href="javascript:BAMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-group_error'" style="width: 100%">浏览经办人信息</a>  
-                <a  href="javascript:BMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_error'" style="width: 100%">浏览药品信息</a>  
+                <a  href="javascript:BMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_error'" style="width: 100%">浏览药品信息</a>
+                <a  href="javascript:BDMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_alert'" style="width: 100%">浏览医生信息</a>
+                <a  href="javascript:BMTMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_error'" style="width: 100%">浏览药品类别信息</a>
 
             </div> 
 <!-- 数据报表-RCM-RAM-RMM+MessageReport  -->
@@ -112,6 +137,9 @@
                  <a  href="javascript:RCMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_go'" style="width: 100%"">顾客信息报表</a>  
                 <a  href="javascript:RAMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-group_go'" style="width: 100%">经办人信息报表</a>  
                 <a  href="javascript:RMMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_go'" style="width: 100%">药品信息报表</a>
+                <a  href="javascript:RDMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-user_go'" style="width: 100%">医生信息报表</a>
+                <a  href="javascript:RMTMclick()" class="easyui-linkbutton" data-options="iconCls:'icon-pill_go'" style="width: 100%">药品类别信息报表</a>
+
             </div> 
 <!-- 用户管理  MMM-->
             <div title="用户管理" id="MM" data-options="iconCls:'icon-user_key'">
@@ -119,8 +147,7 @@
             </div>
 <!-- 系统帮助  -->
             <div title="系统帮助" data-options="iconCls:'icon-help'">
-                  <a  href="javascript:closeAll()" class="easyui-linkbutton" data-options="iconCls:'icon-undo',width:200">关闭全部窗口</a>  
-                 <a  href="javascript:helpclick()" class="easyui-linkbutton" data-options="iconCls:'icon-help'" style="width: 100%">系统帮助</a>  
+                  <a  href="javascript:closeAll()" class="easyui-linkbutton" data-options="iconCls:'icon-undo',width:200">关闭全部窗口</a>
             </div>  
         </div>  
     </div>
@@ -172,7 +199,7 @@
         },
         error: function (jqXHR, textStatus, errorThrown) {
             /*错误信息处理*/
-            $.messager.alert('警告','登陆错误,请重新登陆');  
+            $.messager.alert('警告','登陆错误,请重新登陆');
         }
     });
        

@@ -26,6 +26,16 @@ public class Client {
 	private String ano;
 	private Date cdate;
 	private String cremark;
+	private int dotid;
+
+	public int getDotid() {
+		return dotid;
+	}
+
+	public void setDotid(int dotid) {
+		this.dotid = dotid;
+	}
+
 	public int getCid() {
 		return cid;
 	}

@@ -8,6 +8,16 @@
           select  * from  mdtype where  mdo=#{mdo}
     </select>
     <insert id="saveMedType" parameterType="medtype">
-            insert into mdtype values (default ,#{mdo} ,#{mdname} );
+            insert into mdtype values (default ,#{mdo} ,#{mdname}  );
     </insert>
+    <select id="queryAllMedType" resultType="medtype">
+            select  * from  mdtype
+    </select>
+    <delete id="deleteMedTypeByMno" parameterType="string">
+            delete  from  mdtype where mdo=#{mdo}
+    </delete>
+    <update id="modifyMedType" parameterType="medtype">
+            update mdtype set  mdo=#{mdo} ,mdname=#{mdname}
+            where mdtypeid=#{mdtypeid}
+    </update>
 </mapper>
