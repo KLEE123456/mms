@@ -83,9 +83,16 @@
         症状:<input  name="csymptom" id="mccsymptom" 
         multiline="true"
         class="easyui-textbox" 
-        style="width: 300px;height:150px"
+        style="width: 300px;height:40px"
         data-options="prompt:'长度小于50'" >
         </input>&nbsp;
+        主治医师: <input  name="dotid" id="dotid"
+                           class="easyui-combobox"
+                           style="width: 150px;height:40px"
+                           data-options="
+        valueField:'dotid',textField:'dotname',panelHeight:'300px'"></input>
+        <p/>
+        &nbsp;
         备注:<input  name="cremark" id="mccremark" 
         multiline="true"
         class="easyui-textbox" 
@@ -133,8 +140,12 @@
     //$("#mccdate").datebox('textbox').css("font-size", "18pt");
     $("#mccremark").textbox('setValue', data.cremark);
     //$("#mccremark").textbox('textbox').css("font-size", "18pt");
+    $("#dotid").textbox('setValue', data.dotid);
+
     $('#mcano').combobox('reload','../Agency/GetAllAgency');
     $('#mcmno').combobox('reload','../Medicine/GetAllMedicine');
+    $('#dotid').combobox('reload','../Doctor/findAllDoctor');
+
   });
 }
 function MCMclickModify(){

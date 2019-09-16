@@ -32,6 +32,12 @@
             style="width: 200px;height:40px"
             data-options=""></input>
             &nbsp;
+              药品类别: <input  name="mdtypeid" id="mdtypeid"
+                                 class="easyui-combobox"
+                                 style="width: 100px;height:40px"
+                                 data-options="
+        valueField:'mdtypeid',textField:'mdname',panelHeight:'300px'"></input>
+              <p/>
             服用方法:<select  class="easyui-combobox" name="mmode"  id="mmmmode" 
             data-options="panelHeight:'auto'"
             style="width: 200px;height:40px">   
@@ -82,6 +88,8 @@
     //$("#mmmname").textbox('textbox').css("font-size", "18pt");
     $("#mmmefficacy").textbox('setValue', data.mefficacy);
     //$("#mmmefficacy").textbox('textbox').css("font-size", "18pt");
+      $("#mdtypeid").textbox('setValue', data.mdtypeid);
+      $('#mdtypeid').combobox('reload','../MedType/findAllMedType');
   });
 }
 function MMMclickModify(){

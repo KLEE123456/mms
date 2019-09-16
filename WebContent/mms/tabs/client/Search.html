@@ -1,8 +1,8 @@
 <!-- 顾客编号查询SCM -->
 <div  style="margin: 2% 0px 0px 30%">
-  <div class="easyui-panel" title="顾客编号查询" 
+  <div class="easyui-panel" title="顾客编号查询"
   data-options="iconCls:'icon-user'"
-  style="max-width:400px;padding:30px 60px">
+  style="max-width:400px;padding:30px 60px;background-color: #449d44">
     <div style="margin-bottom:20px">
       <input id="SCMId" class="easyui-textbox" 
       labelPosition="top" 
@@ -21,7 +21,7 @@
  
 <div class="easyui-dialog" title="顾客信息" id="SCMdialog" closed="true"
 data-options="iconCls:'icon-user',modal:true,draggable:false"
-style="width:700px;height:500px">
+style="width:700px;height:500px;background-color: #86b9e0">
     <div style="">
       <div style="margin-left: 5px;margin-bottom: 25px;margin-top:5px;">
         编号:<input id="SCMcno" class="easyui-textbox"
@@ -64,6 +64,11 @@ style="width:700px;height:500px">
       class="easyui-textbox" 
       style="width: 150px;"
       data-options="disabled:true"></input>
+        &nbsp;&nbsp;
+        主治医师:<input id="SCMDot"
+                    class="easyui-textbox"
+                    style="width: 150px;"
+                    data-options="disabled:true"></input>
     </div>
     <div style="margin-left: 5px;margin-bottom: 25px;margin-top:5px;">
       住址:<input id="SCMcaddress"
@@ -122,6 +127,7 @@ style="width:700px;height:500px">
     //$("#SCMcdate").textbox('textbox').css("font-size", "18pt");
     $("#SCMcremark").textbox('setValue', data.cremark);
     //$("#SCMcremark").textbox('textbox').css("font-size", "18pt");
+      $("#SCMDot").textbox('setValue', data.dotid);
   });
 }
 </script>

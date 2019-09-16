@@ -2,6 +2,7 @@ package mms.services;
 
 import java.util.List;
 
+import mms.utils.Md5Encrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import mms.mapper.UserMapper;
 import mms.pojo.Client;
 import mms.pojo.EasyUIResult;
 import mms.pojo.User;
+import sun.security.provider.MD5;
 
 @Service
 public class UserServies {
@@ -38,13 +40,14 @@ public class UserServies {
 
 	public void updateUser(User user) {
 		// TODO Auto-generated method stub
+		String userPwd=user.getuPassword();
+		user.setuPassword(Md5Encrypt.MD5(userPwd));
 		userMapper.updateUser(user);
 	}
 
 	public String queryUserByName(String uUsername) {
 		// TODO Auto-generated method stub
 		User user = userMapper.queryUserByName(uUsername);
-
 		if (user != null) {
 			return "用户已存在";
 		} else

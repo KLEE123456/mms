@@ -2,6 +2,7 @@ package mms.services;
 
 import javax.servlet.http.HttpSession;
 
+import mms.utils.Md5Encrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import mms.mapper.UserMapper;
@@ -15,7 +16,7 @@ public class LoginService {
 
 	public String login(String username, String password, HttpSession session) {
 		// TODO Auto-generated method stub
-
+		password= Md5Encrypt.MD5(password);
 		User user = userMapper.queryUserByName(username);
 		if (user == null) {
 			return "没有此用户";
